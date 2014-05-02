@@ -41,12 +41,17 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="APACHE INDEX FORMATTER" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="start" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock x:Name="uriStartText" HorizontalAlignment="Left" Margin="90,118,0,0" TextWrapping="Wrap" Text="What would you like to format?" VerticalAlignment="Top"/>
+            <TextBox x:Name="uriStartInput" HorizontalAlignment="Left" Height="69" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="304" Margin="127,185,0,0"/>
+            <TextBlock x:Name="uriLabelText" HorizontalAlignment="Left" Margin="40,210,0,0" TextWrapping="Wrap" Text="URI:" VerticalAlignment="Top" TextAlignment="Right"/>
+            <Button x:Name="uriStartSaveButton" Content="Save" HorizontalAlignment="Left" Margin="324,516,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+            <TextBlock x:Name="uriSavedSuccessText" HorizontalAlignment="Center" Margin="68,317,61,0" TextWrapping="Wrap" Text="URI saved! Please scroll right!" VerticalAlignment="Top" Width="327" TextAlignment="Center" Visibility="Collapsed"/>
 
         </Grid>
 

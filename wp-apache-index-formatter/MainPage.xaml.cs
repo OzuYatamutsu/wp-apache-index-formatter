@@ -13,6 +13,8 @@ namespace wp_apache_index_formatter
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        string uriInput;
+
         // Constructor
         public MainPage()
         {
@@ -20,6 +22,12 @@ namespace wp_apache_index_formatter
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            uriInput = uriStartInput.Text;
+            uriSavedSuccessText.Visibility = Visibility.Visible;
         }
 
         // Sample code for building a localized ApplicationBar
