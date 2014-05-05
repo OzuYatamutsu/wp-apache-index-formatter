@@ -46,12 +46,13 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock x:Name="uriStartText" HorizontalAlignment="Left" Margin="90,118,0,0" TextWrapping="Wrap" Text="What would you like to format?" VerticalAlignment="Top"/>
-            <TextBox x:Name="uriStartInput" HorizontalAlignment="Left" Height="69" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="304" Margin="127,185,0,0"/>
-            <TextBlock x:Name="uriLabelText" HorizontalAlignment="Left" Margin="40,210,0,0" TextWrapping="Wrap" Text="URI:" VerticalAlignment="Top" TextAlignment="Right"/>
-            <Button x:Name="uriStartSaveButton" Content="Save" HorizontalAlignment="Left" Margin="324,516,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="14,0,10,0">
+            <TextBlock x:Name="uriStartText" HorizontalAlignment="Left" Margin="81,8,0,0" TextWrapping="Wrap" Text="What would you like to format?" VerticalAlignment="Top"/>
+            <TextBox x:Name="uriStartInput" HorizontalAlignment="Left" Height="69" TextWrapping="Wrap" Text="http://steakscorp.org/expressions.png" VerticalAlignment="Top" Width="304" Margin="68,35,0,0"/>
+            <TextBlock x:Name="uriLabelText" HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="URI:" VerticalAlignment="Top" TextAlignment="Right"/>
+            <Button x:Name="uriStartSaveButton" Content="Go!" HorizontalAlignment="Left" Margin="358,32,0,0" VerticalAlignment="Top" Click="Button_Click"/>
             <TextBlock x:Name="uriSavedSuccessText" HorizontalAlignment="Center" Margin="68,317,61,0" TextWrapping="Wrap" Text="URI saved! Please scroll right!" VerticalAlignment="Top" Width="327" TextAlignment="Center" Visibility="Collapsed"/>
+            <phone:LongListSelector x:Name="scroller" HorizontalAlignment="Left" Height="477" Margin="10,120,0,0" VerticalAlignment="Top" Width="435" ItemsSource="{Binding ApacheList}"/>
 
         </Grid>
 
