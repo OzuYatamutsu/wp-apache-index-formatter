@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace wp_apache_index_formatter
 {
-    class ApacheMapList<string, string> : Dictionary<string, string>
+    class ApacheMapList : Dictionary<string, string>
     {
         private Uri endpoint;
         private HttpWebRequest getUrl;
@@ -18,12 +18,15 @@ namespace wp_apache_index_formatter
         public ApacheMapList(Uri endpoint)
         {
             this.endpoint = endpoint;
-            getUrl = (HttpWebRequest) HttpWebRequest.Create(endpoint);
+            getUrl = (HttpWebRequest)HttpWebRequest.Create(endpoint);
+
             if (!validateEndpoint())
             {
                 // Throw something?
             }
         }
+
+        public ApacheMapList(String endpoint) : this(new Uri(endpoint)) { }
 
         private bool validateEndpoint()
         {

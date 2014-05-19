@@ -13,15 +13,19 @@ namespace wp_apache_index_formatter
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private string DEFAULT_URI = "http://steakscorp.org/expressions.png";
         string uriInput;
-
+        ApacheMapList formatList;
+        
         // Constructor
         public MainPage()
         {
             InitializeComponent();
 
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
+            // On start, load default page
+            // (Maybe save and load from config file?)
+
+            formatList = new ApacheMapList(DEFAULT_URI);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
