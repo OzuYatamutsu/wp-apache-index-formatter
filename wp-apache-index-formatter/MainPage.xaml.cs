@@ -26,12 +26,19 @@ namespace wp_apache_index_formatter
             // (Maybe save and load from config file?)
 
             formatList = new ApacheMapList(DEFAULT_URI);
+            uriInput = DEFAULT_URI;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            uriInput = uriStartInput.Text;
-            uriSavedSuccessText.Visibility = Visibility.Visible;
+            if (!uriInput.Equals(uriStartInput.Text))
+            {
+                uriInput = uriStartInput.Text;
+                formatList = new ApacheMapList(uriInput);
+            }
+            
+            //uriSavedSuccessText.Visibility = Visibility.Visible;
+            formatList.get();
         }
 
         // Sample code for building a localized ApplicationBar

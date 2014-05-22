@@ -19,30 +19,9 @@ namespace wp_apache_index_formatter
         {
             this.endpoint = endpoint;
             getUrl = (HttpWebRequest)HttpWebRequest.Create(endpoint);
-
-            if (!validateEndpoint())
-            {
-                // Throw something?
-            }
         }
 
         public ApacheMapList(String endpoint) : this(new Uri(endpoint)) { }
-
-        private bool validateEndpoint()
-        {
-            bool isValid = true;
-            try
-            {
-                getUrl.BeginGetResponse(getRequestCallback, getUrl);
-            }
-
-            catch (Exception)
-            {
-                isValid = false;
-            }
-
-            return isValid;
-        }
 
         void getRequestCallback(IAsyncResult result)
         {
@@ -50,8 +29,14 @@ namespace wp_apache_index_formatter
             if (request != null)
             {
                 WebResponse response = request.EndGetResponse(result);
-
+                responseStream = response.GetResponseStream();
             }
+        }
+
+        public void get()
+        {
+            // Result will be stored in getUrl
+            getUrl.BeginGetResponse(getRequestCallback, getUrl);
         }
     }
 }
