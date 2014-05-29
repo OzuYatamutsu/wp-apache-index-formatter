@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace wp_apache_index_formatter
 {
     /// <summary>
-    /// A key-value pair of extracted filename and URIs from an Apache directory listing.
+    /// A set of key-value pairs of extracted filename and URIs from an Apache directory listing.
     /// </summary>
     class ApacheMapList : Dictionary<string, string>
     {
@@ -57,8 +57,25 @@ namespace wp_apache_index_formatter
         /// </summary>
         public void get()
         {
+            // Clear old stream first
+            responseStream = null;
             // Result will be stored in getUrl
             getUrl.BeginGetResponse(getRequestCallback, getUrl);
+            if (responseStream != null) // Checks if previous async is completed (is there a better way?)
+            {
+                string test = parseStream(responseStream);
+            }
+        }
+
+        /// <summary>
+        /// Reads the response stream into a string.
+        /// </summary>
+        /// <param name="stream">An input response stream.</param>
+        /// <returns>The raw string output of the response stream.</returns>
+        private string parseStream(Stream stream)
+        {
+            StreamReader reader = new System.IO.StreamReader(stream);
+            return reader.ReadToEnd();
         }
     }
 }
