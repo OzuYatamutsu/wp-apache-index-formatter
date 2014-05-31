@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,14 +14,18 @@ namespace wp_apache_index_formatter
     /// </summary>
     class ApacheMapList : Dictionary<string, string>
     {
-        
         /// <summary>
         /// The URI of the Apache directory listing.
         /// </summary>
         private Uri endpoint;
-        private HttpWebRequest getUrl;
-        private WebResponse serverReply;
-        private Stream responseStream;
+        /// <summary>
+        /// The string response from the server.
+        /// </summary>
+        private string response;
+        /// <summary>
+        /// Client which handles all async server requests.
+        /// </summary>
+        HttpClient getClient;
 
         /// <summary>
         /// Constructs a new ApacheMapList with provided URI.
@@ -29,7 +34,7 @@ namespace wp_apache_index_formatter
         public ApacheMapList(Uri endpoint)
         {
             this.endpoint = endpoint;
-            getUrl = (HttpWebRequest)HttpWebRequest.Create(endpoint);
+            getClient = new HttpClient();
         }
 
         /// <summary>
@@ -39,31 +44,17 @@ namespace wp_apache_index_formatter
         public ApacheMapList(String endpoint) : this(new Uri(endpoint)) { }
 
         /// <summary>
-        /// The callback method for the async HTTP GET performed on the endpoint.
-        /// </summary>
-        /// <param name="result">The result of the current async operation.</param>
-        void getRequestCallback(IAsyncResult result)
-        {
-            HttpWebRequest request = result.AsyncState as HttpWebRequest;
-            if (request != null)
-            {
-                WebResponse response = request.EndGetResponse(result);
-                responseStream = response.GetResponseStream();
-            }
-        }
-
-        /// <summary>
         /// Starts an async GET on the current endpoint.
         /// </summary>
-        public void get()
+        public async void get()
         {
-            // Clear old stream first
-            responseStream = null;
-            // Result will be stored in getUrl
-            getUrl.BeginGetResponse(getRequestCallback, getUrl);
-            if (responseStream != null) // Checks if previous async is completed (is there a better way?)
+            // UI progress bar update before call
+            using (getClient)
             {
-                string test = parseStream(responseStream);
+                // Return response from server
+                var responseStream = await getClient.GetAsync(endpoint);
+                // Interpret resultant stream as string, now we can do something with it!
+                response = await responseStream.Content.ReadAsStringAsync();
             }
         }
 
