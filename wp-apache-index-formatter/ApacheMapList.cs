@@ -25,7 +25,7 @@ namespace wp_apache_index_formatter
         /// <summary>
         /// Client which handles all async server requests.
         /// </summary>
-        HttpClient getClient;
+        private HttpClient getClient;
 
         /// <summary>
         /// Constructs a new ApacheMapList with provided URI.

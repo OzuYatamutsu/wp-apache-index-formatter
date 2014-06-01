@@ -31,6 +31,10 @@ namespace wp_apache_index_formatter
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // Loading animation
+            loadingBarText.Visibility = System.Windows.Visibility.Visible;
+            loadingBar.Visibility = System.Windows.Visibility.Visible;
+
             if (!uriInput.Equals(uriStartInput.Text))
             {
                 uriInput = uriStartInput.Text;
@@ -41,20 +45,9 @@ namespace wp_apache_index_formatter
             formatList.get();
         }
 
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
+        private void loadingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
 
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
+        }
     }
 }
