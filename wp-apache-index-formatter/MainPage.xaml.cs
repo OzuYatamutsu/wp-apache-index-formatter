@@ -47,7 +47,8 @@ namespace wp_apache_index_formatter
 
         private void loadingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            // Do nothing
+            System.Threading.Thread.Sleep(1);
         }
     }
 }

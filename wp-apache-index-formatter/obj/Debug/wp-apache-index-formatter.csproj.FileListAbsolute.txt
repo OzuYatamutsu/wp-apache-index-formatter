@@ -27,6 +27,12 @@ C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\AppManifest.xaml
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\Properties\WMAppManifest.xml
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\wp_apache_index_formatter_Debug_AnyCPU.xap
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.dll
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.xml
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\App.g.cs
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\MainPage.g.cs
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\wp-apache-index-formatter.g.resources
@@ -35,10 +41,3 @@ C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\wp-apache-index-formatter.dll
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\wp-apache-index-formatter.pdb
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\XapCacheFile.xml
-C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.dll
-C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.Extensions.dll
-C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.Primitives.dll
-C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.xml
-C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.Extensions.xml
-C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\System.Net.Http.Primitives.xml
-C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\wp-apache-index-formatter.csprojResolveAssemblyReference.cache
