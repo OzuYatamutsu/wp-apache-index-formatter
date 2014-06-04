@@ -41,13 +41,19 @@ namespace wp_apache_index_formatter
                 formatList = new ApacheMapList(uriInput);
             }
             
-            //uriSavedSuccessText.Visibility = Visibility.Visible;
             formatList.get();
+
+            // Once loaded, stop loading animation
+            // (How can tell when loaded? When view is populated?)
+            // Comment out for now
+            //loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
+            //loadingBar.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         private void loadingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             // Do nothing
+            // This should never be called anyways, loading bar is indeterminate
             System.Threading.Thread.Sleep(1);
         }
     }
