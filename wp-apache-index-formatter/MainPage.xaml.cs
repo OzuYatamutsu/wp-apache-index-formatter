@@ -56,5 +56,15 @@ namespace wp_apache_index_formatter
             // This should never be called anyways, loading bar is indeterminate
             System.Threading.Thread.Sleep(1);
         }
+
+        /// <summary>
+        /// Tests parse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void testParseButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

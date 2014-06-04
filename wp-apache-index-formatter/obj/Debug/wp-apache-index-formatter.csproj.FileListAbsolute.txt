@@ -42,3 +42,6 @@ C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\wp-apache-index-formatter.pdb
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\XapCacheFile.xml
 C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\obj\Debug\wp-apache-index-formatter.csprojResolveAssemblyReference.cache
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\HtmlAgilityPack.dll
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\wp-apache-index-formatter\wp-apache-index-formatter\Bin\Debug\HtmlAgilityPack.xml
