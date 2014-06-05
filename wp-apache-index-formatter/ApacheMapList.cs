@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace wp_apache_index_formatter
@@ -57,24 +58,31 @@ namespace wp_apache_index_formatter
                 response = await responseStream.Content.ReadAsStringAsync();
             }
 
-            stripResponse(response);
+            PopulateList(response);
         }
 
         /// <summary>
-        /// Strips extra HTML for easier processing.
+        /// Populates a list with members of the Apache index page provided by the response.
         /// </summary>
         /// <param name="rawResponse">An input raw response string.</param>
-        /// <returns>The response string stripped of all non-table elements.</returns>
-        private string stripResponse(string rawResponse)
+        /// <returns>(Not sure what to return yet)</returns>
+        private string PopulateList(string rawResponse)
         {
-            var docParser = new HtmlAgilityPack.HtmlDocument();
-            docParser.LoadHtml(rawResponse);
-            /*var dict = docParser.DocumentNode.Descendants("tr")
-                .ToDictionary(
-                tr => tr.Descendants("td").FirstOrDefault().InnerText); /*,
-                tr => tr.Descendants("td").Last().InnerText);*/
-            var dict = docParser.DocumentNode.Descendants("tr").Select(n => n.Elements("td").Select(e => e.InnerText).ToArray());
-            return "";
+           var docParser = new HtmlAgilityPack.HtmlDocument();
+           docParser.LoadHtml(rawResponse);
+           var list = docParser.DocumentNode.Descendants("a");
+           List<string> testList = new List<string>();
+           foreach (var item in list)
+           {
+               if (!item.InnerHtml.Equals("Name")
+                   && !item.InnerHtml.Equals("Last modified") && !item.InnerHtml.Equals("Size")
+                   && !item.InnerHtml.Equals("Description") && !item.InnerHtml.Equals("Parent Directory")
+                )
+               {
+                   testList.Add(item.InnerText);
+               }
+           }
+           return "";
         }
 
         public void testResponse()

@@ -64,7 +64,8 @@ namespace wp_apache_index_formatter
         /// <param name="e"></param>
         private void testParseButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ApacheMapList myTestList = new ApacheMapList(DEFAULT_URI);
+            myTestList.testResponse();
         }
     }
 }
