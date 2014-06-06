@@ -27,6 +27,10 @@ namespace wp_apache_index_formatter
         /// Client which handles all async server requests.
         /// </summary>
         private HttpClient getClient;
+        /// <summary>
+        /// The backing Dictionary which stores the filename-URL pairs.
+        /// </summary>
+        private Dictionary<string, string> apacheIndex;
 
         /// <summary>
         /// Constructs a new ApacheMapList with provided URI.
@@ -36,6 +40,7 @@ namespace wp_apache_index_formatter
         {
             this.endpoint = endpoint;
             getClient = new HttpClient();
+            apacheIndex = new Dictionary<string, string>();
         }
 
         /// <summary>
@@ -65,24 +70,23 @@ namespace wp_apache_index_formatter
         /// Populates a list with members of the Apache index page provided by the response.
         /// </summary>
         /// <param name="rawResponse">An input raw response string.</param>
-        /// <returns>(Not sure what to return yet)</returns>
-        private string PopulateList(string rawResponse)
+        /// <returns>True if the list has been successfully populated; false otherwise.</returns>
+        private bool PopulateList(string rawResponse)
         {
            var docParser = new HtmlAgilityPack.HtmlDocument();
            docParser.LoadHtml(rawResponse);
-           var list = docParser.DocumentNode.Descendants("a");
-           List<string> testList = new List<string>();
-           foreach (var item in list)
+           foreach (var item in docParser.DocumentNode.Descendants("a"))
            {
                if (!item.InnerHtml.Equals("Name")
                    && !item.InnerHtml.Equals("Last modified") && !item.InnerHtml.Equals("Size")
                    && !item.InnerHtml.Equals("Description") && !item.InnerHtml.Equals("Parent Directory")
                 )
                {
-                   testList.Add(item.InnerText);
+                   apacheIndex.Add(item.InnerText, endpoint.ToString() + "/" + item.GetAttributeValue("href", ""));
                }
            }
-           return "";
+
+           return (apacheIndex.Count > 0) ? true : false;
         }
 
         public void testResponse()
