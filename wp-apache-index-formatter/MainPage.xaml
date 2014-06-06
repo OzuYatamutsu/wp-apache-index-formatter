@@ -30,10 +30,10 @@
             <TextBlock x:Name="uriLabelText" HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="URI:" VerticalAlignment="Top" TextAlignment="Right"/>
             <Button x:Name="uriStartSaveButton" Content="Go!" HorizontalAlignment="Left" Margin="358,32,0,0" VerticalAlignment="Top" Click="Button_Click"/>
             <TextBlock x:Name="uriSavedSuccessText" HorizontalAlignment="Center" Margin="68,317,61,0" TextWrapping="Wrap" Text="URI saved! Please scroll right!" VerticalAlignment="Top" Width="327" TextAlignment="Center" Visibility="Collapsed"/>
-            <phone:LongListSelector x:Name="scroller" HorizontalAlignment="Left" Height="477" Margin="10,120,0,0" VerticalAlignment="Top" Width="435" ItemsSource="{Binding ApacheList}" FontFamily="Portable User Interface" Visibility="Collapsed"/>
             <ProgressBar x:Name="loadingBar" HorizontalAlignment="Left" Height="22" Margin="10,249,0,0" VerticalAlignment="Top" Width="435" ValueChanged="loadingBar_ValueChanged" IsIndeterminate="True" FontFamily="Portable User Interface" Visibility="Collapsed"/>
             <TextBlock x:Name="loadingBarText" HorizontalAlignment="Left" Margin="81,271,0,0" TextWrapping="Wrap" Text="We're contacting the server..." VerticalAlignment="Top" FontFamily="Portable User Interface" Width="295" TextAlignment="Center" FontSize="15" Visibility="Collapsed"/>
             <Button x:Name="testParseButton" Content="testParse" HorizontalAlignment="Left" Margin="302,511,0,0" VerticalAlignment="Top" Click="testParseButton_Click"/>
+            <phone:LongListSelector x:Name="indexScroller" HorizontalAlignment="Left" Height="397" Margin="10,109,0,0" VerticalAlignment="Top" Width="435" SelectionChanged="LongListSelector_SelectionChanged" Visibility="Collapsed"/>
 
         </Grid>
     </Grid>

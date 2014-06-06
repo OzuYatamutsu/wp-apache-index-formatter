@@ -40,20 +40,29 @@ namespace wp_apache_index_formatter
                 uriInput = uriStartInput.Text;
                 formatList = new ApacheMapList(uriInput);
             }
-            
-            formatList.get();
 
-            // Once loaded, stop loading animation
-            // (How can tell when loaded? When view is populated?)
-            // Comment out for now
-            //loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
-            //loadingBar.Visibility = System.Windows.Visibility.Collapsed;
+            PopulateLongList();
         }
 
+        private async void PopulateLongList()
+        {
+            await formatList.Get();
+            indexScroller.ItemsSource = formatList.GetKeyList();
+
+            // Once list is loaded, remove loading animation and show list
+            loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
+            loadingBar.Visibility = System.Windows.Visibility.Collapsed;
+            indexScroller.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Not implemented. Loading bar should be indeterminate.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loadingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             // Do nothing
-            // This should never be called anyways, loading bar is indeterminate
             System.Threading.Thread.Sleep(1);
         }
 
@@ -64,8 +73,27 @@ namespace wp_apache_index_formatter
         /// <param name="e"></param>
         private void testParseButton_Click(object sender, RoutedEventArgs e)
         {
+            // Loading animation
+            loadingBarText.Visibility = System.Windows.Visibility.Visible;
+            loadingBar.Visibility = System.Windows.Visibility.Visible;
+
             ApacheMapList myTestList = new ApacheMapList(DEFAULT_URI);
             myTestList.testResponse();
+            indexScroller.ItemsSource = myTestList.GetKeyList();
+            // Once list is loaded, remove loading animation and show list
+            loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
+            loadingBar.Visibility = System.Windows.Visibility.Collapsed;
+            indexScroller.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Not implemented.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
