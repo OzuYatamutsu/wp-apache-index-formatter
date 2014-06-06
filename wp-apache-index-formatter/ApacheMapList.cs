@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 namespace wp_apache_index_formatter
 {
     /// <summary>
-    /// A set of key-value pairs of extracted filename and URIs from an Apache directory listing.
+    /// Handles client-server GETs and extracts filename and URIs from an Apache directory listing.
     /// </summary>
-    class ApacheMapList : Dictionary<string, string>
+    class ApacheMapList
     {
         /// <summary>
         /// The URI of the Apache directory listing.
@@ -52,7 +52,7 @@ namespace wp_apache_index_formatter
         /// <summary>
         /// Starts an async GET on the current endpoint.
         /// </summary>
-        public async void get()
+        public async Task Get()
         {
             // UI progress bar update before call
             using (getClient)
@@ -87,6 +87,24 @@ namespace wp_apache_index_formatter
            }
 
            return (apacheIndex.Count > 0) ? true : false;
+        }
+
+        /// <summary>
+        /// Returns if the current ApacheMapList is empty.
+        /// </summary>
+        /// <returns>True if the ApacheMapList is empty; false otherwise.</returns>
+        public bool IsEmpty()
+        {
+            return (apacheIndex.Count > 0) ? true : false;
+        }
+
+        /// <summary>
+        /// Returns a list of string keys from the backing dictionary.
+        /// </summary>
+        /// <returns>A list of string keys from the backing dictionary.</returns>
+        public List<string> GetKeyList()
+        {
+            return apacheIndex.Keys.ToList();
         }
 
         public void testResponse()
