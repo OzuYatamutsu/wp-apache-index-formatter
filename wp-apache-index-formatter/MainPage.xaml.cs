@@ -79,7 +79,11 @@ namespace wp_apache_index_formatter
 
             ApacheMapList myTestList = new ApacheMapList(DEFAULT_URI);
             myTestList.testResponse();
-            indexScroller.ItemsSource = myTestList.GetKeyList();
+            //indexScroller.ItemsSource = myTestList.GetKeyList();
+            List<AlphaKeyGroup<string>> DataSource = AlphaKeyGroup<string>.CreateGroups(myTestList.GetKeyList(),
+                System.Threading.Thread.CurrentThread.CurrentUICulture,
+                (string s) => { return s; }, true);
+            indexScroller.ItemsSource = DataSource;
             // Once list is loaded, remove loading animation and show list
             loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
             loadingBar.Visibility = System.Windows.Visibility.Collapsed;
