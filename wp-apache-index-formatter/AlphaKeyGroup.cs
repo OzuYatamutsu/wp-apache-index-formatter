@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.Phone.Globalization;
 
 namespace wp_apache_index_formatter
 {
-
-
         public class AlphaKeyGroup<T> : List<T>
         {
             /// <summary>
