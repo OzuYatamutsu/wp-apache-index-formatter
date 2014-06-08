@@ -100,7 +100,7 @@ namespace wp_apache_index_formatter
         /// <param name="e"></param>
         private void LongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            MessageBox.Show("You clicked!");
         }
     }
 }
