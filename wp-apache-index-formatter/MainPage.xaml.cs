@@ -47,7 +47,11 @@ namespace wp_apache_index_formatter
         private async void PopulateLongList()
         {
             await formatList.Get();
-            indexScroller.ItemsSource = formatList.GetKeyList();
+
+            List<AlphaKeyGroup<string>> dataSource = AlphaKeyGroup<string>.CreateGroups(formatList.GetKeyList(),
+                System.Threading.Thread.CurrentThread.CurrentUICulture,
+                (string s) => { return s; }, true);
+            indexScroller.ItemsSource = dataSource;
 
             // Once list is loaded, remove loading animation and show list
             loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
@@ -79,11 +83,10 @@ namespace wp_apache_index_formatter
 
             ApacheMapList myTestList = new ApacheMapList(DEFAULT_URI);
             myTestList.testResponse();
-            //indexScroller.ItemsSource = myTestList.GetKeyList();
-            List<AlphaKeyGroup<string>> DataSource = AlphaKeyGroup<string>.CreateGroups(myTestList.GetKeyList(),
+            List<AlphaKeyGroup<string>> dataSource = AlphaKeyGroup<string>.CreateGroups(myTestList.GetKeyList(),
                 System.Threading.Thread.CurrentThread.CurrentUICulture,
                 (string s) => { return s; }, true);
-            indexScroller.ItemsSource = DataSource;
+            indexScroller.ItemsSource = dataSource;
             // Once list is loaded, remove loading animation and show list
             loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
             loadingBar.Visibility = System.Windows.Visibility.Collapsed;

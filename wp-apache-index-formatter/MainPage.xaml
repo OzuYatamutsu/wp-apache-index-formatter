@@ -34,7 +34,7 @@
         <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
         <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
         <Style x:Key="IndexJumpList" TargetType="phone:LongListSelector">
-            <Setter Property="GridCellSize"  Value="113,113"/>
+            <Setter Property="GridCellSize" Value="113,113"/>
             <Setter Property="LayoutMode" Value="Grid" />
             <Setter Property="ItemTemplate">
                 <Setter.Value>
@@ -69,7 +69,7 @@
             <ProgressBar x:Name="loadingBar" HorizontalAlignment="Left" Height="22" Margin="10,249,0,0" VerticalAlignment="Top" Width="435" ValueChanged="loadingBar_ValueChanged" IsIndeterminate="True" FontFamily="Portable User Interface" Visibility="Collapsed"/>
             <TextBlock x:Name="loadingBarText" HorizontalAlignment="Left" Margin="81,271,0,0" TextWrapping="Wrap" Text="We're contacting the server..." VerticalAlignment="Top" FontFamily="Portable User Interface" Width="295" TextAlignment="Center" FontSize="15" Visibility="Collapsed"/>
             <Button x:Name="testParseButton" Content="testParse" HorizontalAlignment="Left" Margin="302,511,0,0" VerticalAlignment="Top" Click="testParseButton_Click"/>
-            <phone:LongListSelector x:Name="indexScroller" HorizontalAlignment="Left" Height="397" Margin="10,109,0,0" VerticalAlignment="Top" Width="435" SelectionChanged="LongListSelector_SelectionChanged" Visibility="Collapsed" IsGroupingEnabled="true" HideEmptyGroups="true" GroupHeaderTemplate="{StaticResource IndexHeaderTemplate}"/>
+            <phone:LongListSelector x:Name="indexScroller" HorizontalAlignment="Left" Height="397" Margin="10,109,0,0" VerticalAlignment="Top" Width="435" SelectionChanged="LongListSelector_SelectionChanged" Visibility="Collapsed" IsGroupingEnabled="true" HideEmptyGroups="true" GroupHeaderTemplate="{StaticResource IndexHeaderTemplate}" JumpListStyle="{StaticResource IndexJumpList}"/>
 
         </Grid>
     </Grid>
