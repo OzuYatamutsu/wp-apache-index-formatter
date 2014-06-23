@@ -16,8 +16,7 @@
     <phone:PhoneApplicationPage.Resources>
         <DataTemplate x:Key="IndexItemTemplate">
             <StackPanel VerticalAlignment="Top">
-                <TextBlock FontWeight="Normal"/>
-                <TextBlock Text="{Binding Name}" FontSize="20" FontFamily="Portable User Interface" Foreground="Black"/>
+                <TextBlock FontWeight="Normal" Text="{Binding BindsDirectlyToSource=True}" FontSize="40" FontFamily="Portable User Interface" Margin="5"/>
             </StackPanel>
         </DataTemplate>
 
@@ -70,7 +69,7 @@
             <TextBlock x:Name="loadingBarText" HorizontalAlignment="Left" Margin="81,271,0,0" TextWrapping="Wrap" Text="We're contacting the server..." VerticalAlignment="Top" FontFamily="Portable User Interface" Width="295" TextAlignment="Center" FontSize="15" Visibility="Collapsed"/>
             <Button x:Name="testParseButton" Content="testParse" HorizontalAlignment="Left" Margin="302,511,0,0" VerticalAlignment="Top" Click="testParseButton_Click"/>
             <!--ItemTemplate="{StaticResource IndexItemTemplate}" -->
-            <phone:LongListSelector x:Name="indexScroller" HorizontalAlignment="Left" Height="397" Margin="10,109,0,0" VerticalAlignment="Top" Width="435" SelectionChanged="LongListSelector_SelectionChanged" Visibility="Collapsed" IsGroupingEnabled="true" HideEmptyGroups="true" GroupHeaderTemplate="{StaticResource IndexHeaderTemplate}" JumpListStyle="{StaticResource IndexJumpList}" FontFamily="Portable User Interface" FontSize="20" />
+            <phone:LongListSelector x:Name="indexScroller" HorizontalAlignment="Left" Height="397" Margin="10,109,0,0" VerticalAlignment="Top" Width="435" SelectionChanged="LongListSelector_SelectionChanged" Visibility="Collapsed" IsGroupingEnabled="true" HideEmptyGroups="true" GroupHeaderTemplate="{StaticResource IndexHeaderTemplate}" JumpListStyle="{StaticResource IndexJumpList}" ItemTemplate="{StaticResource IndexItemTemplate}" />
 
         </Grid>
     </Grid>
