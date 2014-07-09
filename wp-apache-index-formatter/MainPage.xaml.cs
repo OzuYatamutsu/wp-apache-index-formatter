@@ -94,13 +94,13 @@ namespace wp_apache_index_formatter
         }
 
         /// <summary>
-        /// Not implemented.
+        /// Function which fires on item click.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        async private void LongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("You clicked!");
+            await Windows.System.Launcher.LaunchUriAsync(new Uri(uriInput + '/' + indexScroller.SelectedItem));
         }
     }
 }
