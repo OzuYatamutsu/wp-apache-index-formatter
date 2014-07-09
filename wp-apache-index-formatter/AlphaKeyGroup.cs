@@ -35,7 +35,7 @@ namespace wp_apache_index_formatter
             /// Create a list of AlphaGroup<T> with keys set by a SortedLocaleGrouping.
             /// </summary>
             /// <param name="slg">The </param>
-            /// <returns>Theitems source for a LongListSelector</returns>
+            /// <returns>The items source for a LongListSelector</returns>
             private static List<AlphaKeyGroup<T>> CreateGroups(SortedLocaleGrouping slg)
             {
                 List<AlphaKeyGroup<T>> list = new List<AlphaKeyGroup<T>>();

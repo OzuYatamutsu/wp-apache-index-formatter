@@ -31,6 +31,10 @@ namespace wp_apache_index_formatter
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // Clean up previous messages
+            notApacheErrorText.Visibility = System.Windows.Visibility.Collapsed;
+            indexScroller.Visibility = System.Windows.Visibility.Collapsed;
+
             // Loading animation
             loadingBarText.Visibility = System.Windows.Visibility.Visible;
             loadingBar.Visibility = System.Windows.Visibility.Visible;
@@ -48,11 +52,21 @@ namespace wp_apache_index_formatter
         {
             await formatList.Get();
 
-            List<AlphaKeyGroup<string>> dataSource = AlphaKeyGroup<string>.CreateGroups(formatList.GetKeyList(),
-                System.Threading.Thread.CurrentThread.CurrentUICulture,
-                (string s) => { return s; }, true);
-            indexScroller.ItemsSource = dataSource;
+            if (formatList.Count() > 0)
+            {
+                List<AlphaKeyGroup<string>> dataSource = AlphaKeyGroup<string>.CreateGroups(formatList.GetKeyList(),
+                    System.Threading.Thread.CurrentThread.CurrentUICulture,
+                    (string s) => { return s; }, true);
+                indexScroller.ItemsSource = dataSource;
+            }
 
+            else
+            {
+                indexScroller.ItemsSource = null;
+
+                // Nothing in the list, so display error message
+                notApacheErrorText.Visibility = System.Windows.Visibility.Visible;
+            }
             // Once list is loaded, remove loading animation and show list
             loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
             loadingBar.Visibility = System.Windows.Visibility.Collapsed;

@@ -70,6 +70,7 @@
             <Button x:Name="testParseButton" Content="testParse" HorizontalAlignment="Left" Margin="302,511,0,0" VerticalAlignment="Top" Click="testParseButton_Click"/>
             <!--ItemTemplate="{StaticResource IndexItemTemplate}" -->
             <phone:LongListSelector x:Name="indexScroller" HorizontalAlignment="Left" Height="397" Margin="10,109,0,0" VerticalAlignment="Top" Width="435" SelectionChanged="LongListSelector_SelectionChanged" Visibility="Collapsed" IsGroupingEnabled="true" HideEmptyGroups="true" GroupHeaderTemplate="{StaticResource IndexHeaderTemplate}" JumpListStyle="{StaticResource IndexJumpList}" ItemTemplate="{StaticResource IndexItemTemplate}" />
+            <TextBlock x:Name="notApacheErrorText" HorizontalAlignment="Left" Margin="23,122,0,0" TextWrapping="Wrap" Text="Sorry! The provided URI does not seem to be a valid Apache index page." VerticalAlignment="Top" Visibility="Collapsed"/>
 
         </Grid>
     </Grid>
