@@ -31,6 +31,10 @@ namespace wp_apache_index_formatter
         /// The backing Dictionary which stores the filename-URL pairs.
         /// </summary>
         private Dictionary<string, string> apacheIndex;
+        /// <summary>
+        /// The number of items currently contained in this ApacheMapList.
+        /// </summary>
+        private int count;
 
         /// <summary>
         /// Constructs a new ApacheMapList with provided URI.
@@ -41,6 +45,7 @@ namespace wp_apache_index_formatter
             this.endpoint = endpoint;
             getClient = new HttpClient();
             apacheIndex = new Dictionary<string, string>();
+            count = 0;
         }
 
         /// <summary>
@@ -54,6 +59,11 @@ namespace wp_apache_index_formatter
         /// </summary>
         public async Task Get()
         {
+            // Clean up
+            apacheIndex.Clear();
+            response = "";
+            getClient = new HttpClient();
+
             // UI progress bar update before call
             using (getClient)
             {
@@ -75,6 +85,14 @@ namespace wp_apache_index_formatter
         {
            var docParser = new HtmlAgilityPack.HtmlDocument();
            docParser.LoadHtml(rawResponse);
+           if (docParser.DocumentNode.Descendants("address").ToList().Count() == 0)
+           {
+               // Apache index pages tend to have an <address> tag
+               // So we're assuming if there is none, this is not an Apache index page
+               
+               return false;
+           }
+
            foreach (var item in docParser.DocumentNode.Descendants("a"))
            {
                if (!item.InnerHtml.Equals("Name")
@@ -83,6 +101,7 @@ namespace wp_apache_index_formatter
                 )
                {
                    apacheIndex.Add(item.InnerText, endpoint.ToString() + "/" + item.GetAttributeValue("href", ""));
+                   count++;
                }
            }
 
@@ -105,6 +124,15 @@ namespace wp_apache_index_formatter
         public List<string> GetKeyList()
         {
             return apacheIndex.Keys.ToList();
+        }
+
+        /// <summary>
+        /// Returns the number of items contained in this ApacheMapList.
+        /// </summary>
+        /// <returns>The number of items contained in this ApacheMapList.</returns>
+        public int Count()
+        {
+            return count;
         }
 
         public void testResponse()
