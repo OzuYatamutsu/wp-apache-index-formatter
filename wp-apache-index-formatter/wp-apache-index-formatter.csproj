@@ -143,6 +143,10 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Draw Free! Picture.png" />
+    <Content Include="Jinhai-2-transparent.png" />
+    <Content Include="Jinhai_3_profile_closeface.png" />
+    <Content Include="Resources\apache_index_formatter_tile_placehold.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
