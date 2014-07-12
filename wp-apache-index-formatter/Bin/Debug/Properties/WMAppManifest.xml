@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{e7c6f258-7115-48f9-a6b3-7ff7a6785a02}" Title="Apache Index Formatter (Nyaa!)" RuntimeType="Silverlight" Version="0.9.71214" Genre="apps.normal" Author="Jinhai Steakhouse" Description="A small utility which formats the output of an Apache directory index for Windows Phone." Publisher="Steaks Corporation" PublisherID="{f7d6498f-d13f-4649-912e-58fe03080b1f}">
+  <App xmlns="" ProductID="{e7c6f258-7115-48f9-a6b3-7ff7a6785a02}" Title="Steakscorp AIF (Nyaa!)" RuntimeType="Silverlight" Version="0.9.71214" Genre="apps.normal" Author="Jinhai Steakhouse" Description="A small utility which formats the output of an Apache directory index for Windows Phone." Publisher="Steaks Corporation" PublisherID="{f7d6498f-d13f-4649-912e-58fe03080b1f}">
     <IconPath IsRelative="true" IsResource="false">Resources\apache_index_formatter_tile_placehold.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
