@@ -63,17 +63,8 @@ namespace wp_apache_index_formatter
 
                 foreach (T item in items)
                 {
-                    int index = 0;
-                    if (slg.SupportsPhonetics)
-                    {
-                        //check if your database has yomi string for item
-                        //if it does not, then do you want to generate Yomi or ask the user for this item.
-                        //index = slg.GetGroupIndex(getKey(Yomiof(item)));
-                    }
-                    else
-                    {
-                        index = slg.GetGroupIndex(getKey(item));
-                    }
+                    int index = slg.GetGroupIndex(getKey(item));
+
                     if (index >= 0 && index < list.Count)
                     {
                         list[index].Add(item);

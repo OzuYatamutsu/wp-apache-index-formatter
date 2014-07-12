@@ -85,29 +85,6 @@ namespace wp_apache_index_formatter
         }
 
         /// <summary>
-        /// Tests parse
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void testParseButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Loading animation
-            loadingBarText.Visibility = System.Windows.Visibility.Visible;
-            loadingBar.Visibility = System.Windows.Visibility.Visible;
-
-            ApacheMapList myTestList = new ApacheMapList(DEFAULT_URI);
-            myTestList.testResponse();
-            List<AlphaKeyGroup<string>> dataSource = AlphaKeyGroup<string>.CreateGroups(myTestList.GetKeyList(),
-                System.Threading.Thread.CurrentThread.CurrentUICulture,
-                (string s) => { return s; }, true);
-            indexScroller.ItemsSource = dataSource;
-            // Once list is loaded, remove loading animation and show list
-            loadingBarText.Visibility = System.Windows.Visibility.Collapsed;
-            loadingBar.Visibility = System.Windows.Visibility.Collapsed;
-            indexScroller.Visibility = System.Windows.Visibility.Visible;
-        }
-
-        /// <summary>
         /// Function which fires on item click.
         /// </summary>
         /// <param name="sender"></param>
